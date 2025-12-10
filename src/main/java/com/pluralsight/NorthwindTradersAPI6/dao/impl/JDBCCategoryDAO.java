@@ -104,13 +104,13 @@ public class JDBCCategoryDAO implements ICategoryDAO {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int categoryId) {
         String sql = "DELETE FROM Categories WHERE CategoryID = ?";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, id);
+            statement.setInt(1, categoryId);
 
             statement.executeUpdate();
         } catch (SQLException e) {
